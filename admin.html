@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Painel — DataVotoCesf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="https://frutigeraeroarchive.org/images/icons/windows_vista/vista_firewall_2.ico" type="image/x-icon">
+  <!-- Chart.js (UMD expõe a global "Chart") -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== Tela de login ===== -->
+  <section id="tela-login" class="login">
+    <h1>Área restrita</h1>
+    <form id="form-login">
+      <label for="senha">Senha da equipe</label>
+      <input type="password" id="senha" autocomplete="current-password" required />
+      <p id="erro-login" class="erro" role="alert"></p>
+      <button type="submit">Entrar</button>
+    </form>
+    <p style="margin-top:1rem"><a href="index.html">Voltar à pesquisa</a></p>
+  </section>
+
+  <!-- ===== Painel (oculto até autenticar) ===== -->
+  <main id="tela-painel" class="admin-main" hidden>
+    <div class="admin-topo">
+      <h1>Resultados da pesquisa</h1>
+      <div>
+        <button id="btn-atualizar" type="button">Atualizar</button>
+        <button id="btn-sair" type="button">Sair</button>
+      </div>
+    </div>
+
+    <p id="status-painel" role="status" aria-live="polite"></p>
+
+    <section class="metricas" aria-label="Métricas gerais">
+      <div class="metrica"><div class="valor" id="m-total">–</div><div class="nome">respostas</div></div>
+      <div class="metrica"><div class="valor" id="m-moradores">–</div><div class="nome">média de moradores por casa</div></div>
+      <div class="metrica"><div class="valor" id="m-trabalhadores">–</div><div class="nome">média de trabalhadores por casa</div></div>
+    </section>
+
+    <section class="graficos" aria-label="Gráficos">
+      <article class="grafico"><h2>Faixa etária</h2><div class="caixa"><canvas id="g-faixa" role="img" aria-label="Gráfico de barras da faixa etária"></canvas></div></article>
+      <article class="grafico"><h2>Rotina</h2><div class="caixa"><canvas id="g-rotina" role="img" aria-label="Gráfico de rosca da rotina"></canvas></div></article>
+      <article class="grafico"><h2>Renda familiar</h2><div class="caixa"><canvas id="g-renda" role="img" aria-label="Gráfico de barras da renda familiar"></canvas></div></article>
+      <article class="grafico"><h2>Certeza do voto</h2><div class="caixa"><canvas id="g-voto" role="img" aria-label="Gráfico de rosca da certeza do voto"></canvas></div></article>
+      <article class="grafico largo"><h2>Pautas prioritárias</h2><div class="caixa"><canvas id="g-pautas" role="img" aria-label="Gráfico de barras das pautas prioritárias"></canvas></div></article>
+      <article class="grafico largo"><h2>Respostas por bairro</h2><div class="caixa"><canvas id="g-bairro" role="img" aria-label="Gráfico de barras por bairro"></canvas></div></article>
+    </section>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

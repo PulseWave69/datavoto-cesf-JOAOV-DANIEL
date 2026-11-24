@@ -1,0 +1,210 @@
+/* style.css — Front-end & UX Lead
+   Mobile-first. Paleta: azul-petróleo (confiança, escola) + âmbar (ação). */
+
+:root {
+  --fundo: #eef3f6;
+  --papel: #ffffff;
+  --tinta: #12303d;
+  --tinta-suave: #4a6472;
+  --petroleo: #0b4f6c;
+  --ambar: #f2a541;
+  --ambar-escuro: #c97f12;
+  --linha: #c9d6dd;
+  --erro: #b3261e;
+  --ok: #1b7a4b;
+  --raio: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Public Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--tinta);
+  background: var(--fundo);
+}
+
+h1, h2 {
+  font-family: "Bricolage Grotesque", "Public Sans", sans-serif;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ambar);
+  color: var(--tinta);
+  padding: .75rem 1rem;
+  z-index: 10;
+}
+.skip:focus { left: 0; }
+
+/* ---------- Topo ---------- */
+.topo {
+  background: var(--petroleo);
+  color: #fff;
+  padding: 2rem 1.25rem 2.5rem;
+}
+.topo > * { max-width: 40rem; margin-inline: auto; }
+.selo { font-size: .875rem; opacity: .85; margin-bottom: .75rem; }
+.topo h1 { font-size: clamp(2rem, 8vw, 3.25rem); font-weight: 800; letter-spacing: -.02em; }
+.lead { margin-top: 1rem; max-width: 34rem; opacity: .92; }
+
+/* ---------- Formulário ---------- */
+main { max-width: 40rem; margin: -1.25rem auto 0; padding: 0 1rem 2rem; }
+
+fieldset {
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 1.25rem 1rem 1rem;
+  margin: 0 0 1rem;
+}
+legend {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  padding: 0 .5rem;
+  margin-left: -.5rem;
+  background: var(--papel);
+}
+
+.campo { margin-bottom: 1.1rem; }
+.campo:last-child { margin-bottom: .25rem; }
+
+label, .rotulo { display: block; font-weight: 600; margin-bottom: .35rem; }
+.rotulo small { font-weight: 400; color: var(--tinta-suave); }
+
+select, input[type="number"] {
+  width: 100%;
+  min-height: 48px;               /* alvo de toque confortável */
+  padding: .6rem .75rem;
+  font: inherit;
+  color: var(--tinta);
+  background: #fff;
+  border: 1.5px solid var(--linha);
+  border-radius: var(--raio);
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  min-height: 48px;
+  padding: .4rem .75rem;
+  margin-bottom: .4rem;
+  font-weight: 400;
+  border: 1.5px solid var(--linha);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+.opcao input { width: 1.25rem; height: 1.25rem; accent-color: var(--petroleo); flex: none; }
+.opcao:has(input:checked) { border-color: var(--petroleo); background: #e3f0f5; }
+
+.dupla { display: grid; gap: 0; }
+
+/* Foco visível para teclado */
+:is(select, input, button, a):focus-visible {
+  outline: 3px solid var(--ambar);
+  outline-offset: 2px;
+}
+
+/* ---------- Erros ---------- */
+.erro { color: var(--erro); font-size: .875rem; margin: .35rem 0 0; min-height: 0; }
+.invalido { border-color: var(--erro) !important; }
+
+/* ---------- Botões ---------- */
+button {
+  font: inherit;
+  font-weight: 700;
+  min-height: 52px;
+  padding: .75rem 1.25rem;
+  border: 0;
+  border-radius: var(--raio);
+  cursor: pointer;
+  background: var(--ambar);
+  color: var(--tinta);
+  width: 100%;
+}
+button:hover:not(:disabled) { background: var(--ambar-escuro); color: #fff; }
+button:disabled { opacity: .6; cursor: wait; }
+
+#status { margin: .75rem 0 0; font-weight: 600; min-height: 1.5rem; }
+#status.ok { color: var(--ok); }
+#status.falha { color: var(--erro); }
+
+.sucesso {
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 1.5rem 1rem;
+}
+.sucesso h2 { font-size: 1.75rem; margin-bottom: .5rem; }
+.sucesso button { margin-top: 1rem; }
+
+.rodape { text-align: center; font-size: .875rem; color: var(--tinta-suave); padding: 1rem; }
+.rodape a { color: var(--petroleo); }
+
+/* ---------- Telas maiores ---------- */
+@media (min-width: 600px) {
+  .dupla { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  button { width: auto; }
+  fieldset { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* ======================================================
+   ADMIN
+   ====================================================== */
+.admin-main { max-width: 64rem; margin: 0 auto; padding: 1.25rem 1rem 3rem; }
+
+.login {
+  max-width: 24rem;
+  margin: 3rem auto;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 1.5rem 1.25rem;
+}
+.login h1 { font-size: 1.75rem; margin-bottom: 1rem; }
+.login input[type="password"] {
+  width: 100%; min-height: 48px; padding: .6rem .75rem; font: inherit;
+  border: 1.5px solid var(--linha); border-radius: var(--raio); margin-bottom: .75rem;
+}
+
+.admin-topo {
+  display: flex; flex-wrap: wrap; gap: .75rem;
+  align-items: center; justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.admin-topo h1 { font-size: 1.75rem; }
+.admin-topo button { width: auto; min-height: 44px; background: transparent; border: 1.5px solid var(--petroleo); color: var(--petroleo); }
+
+.metricas { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: .75rem; margin-bottom: 1rem; }
+.metrica { background: var(--petroleo); color: #fff; border-radius: var(--raio); padding: 1rem; }
+.metrica .valor { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 2.25rem; line-height: 1; }
+.metrica .nome { font-size: .9rem; opacity: .85; margin-top: .35rem; }
+
+.graficos { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+.grafico {
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  padding: 1rem;
+}
+.grafico h2 { font-size: 1.1rem; margin-bottom: .75rem; }
+.grafico .caixa { position: relative; height: 280px; }
+
+@media (min-width: 800px) {
+  .graficos { grid-template-columns: 1fr 1fr; }
+  .grafico.largo { grid-column: 1 / -1; }
+}

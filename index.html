@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pesquisa anônima sobre renda, rotina e eleições em Campo Largo/PR. Colégio Sagrada Família." />
+  <title>DataVotoCesf — Pesquisa de Campo Largo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="https://frutigeraeroarchive.org/images/icons/communication/wlm1.ico" type="image/x-icon">
+</head>
+<body>
+  <a class="skip" href="#form-pesquisa">Ir para o formulário</a>
+
+  <header class="topo">
+    <p class="selo">Colégio Sagrada Família · Campo Largo/PR</p>
+    <h1>Como pensa e como vive a nossa cidade?</h1>
+    <p class="lead">Leva uns 2 minutos. Ninguém é identificado: não pedimos nome, e-mail nem telefone.</p>
+  </header>
+
+  <main>
+    <form id="form-pesquisa" novalidate>
+
+      <fieldset>
+        <legend>Sobre você</legend>
+
+        <div class="campo">
+          <label for="faixaEtaria">Faixa etária</label>
+          <select id="faixaEtaria" name="faixaEtaria" required>
+            <option value="">Selecione</option>
+            <option>Até 15 anos</option>
+            <option>16 a 17 anos</option>
+            <option>18 a 24 anos</option>
+            <option>25 a 34 anos</option>
+            <option>35 a 44 anos</option>
+            <option>45 a 59 anos</option>
+            <option>60 anos ou mais</option>
+          </select>
+          <p class="erro" data-erro-para="faixaEtaria" role="alert"></p>
+        </div>
+
+        <div class="campo">
+          <label for="bairro">Bairro onde mora</label>
+          <select id="bairro" name="bairro" required>
+            <option value="">Selecione</option>
+            <option>Centro</option>
+            <option>Vila Bancária</option>
+            <option>Jardim Paulista</option>
+            <option>Ouro Verde</option>
+            <option>Rondinha</option>
+            <option>Jardim Bandeirantes</option>
+            <option>Itaqui</option>
+            <option>Vila Glória</option>
+            <option>Cercadinho</option>
+            <option>Botiatuvinha</option>
+            <option>Jardim Ipê</option>
+            <option>Vila Nova</option>
+            <option>Outro bairro de Campo Largo</option>
+          </select>
+          <p class="erro" data-erro-para="bairro" role="alert"></p>
+        </div>
+
+        <div class="campo" role="radiogroup" aria-labelledby="lbl-rotina">
+          <span id="lbl-rotina" class="rotulo">Sua rotina hoje</span>
+          <label class="opcao"><input type="radio" name="rotina" value="Estuda" required /> Estudo</label>
+          <label class="opcao"><input type="radio" name="rotina" value="Trabalha" /> Trabalho</label>
+          <label class="opcao"><input type="radio" name="rotina" value="Estuda e trabalha" /> Estudo e trabalho</label>
+          <label class="opcao"><input type="radio" name="rotina" value="Nenhum" /> Nenhum dos dois</label>
+          <p class="erro" data-erro-para="rotina" role="alert"></p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Sua casa</legend>
+
+        <div class="campo">
+          <label for="rendaFamiliar">Renda familiar mensal</label>
+          <select id="rendaFamiliar" name="rendaFamiliar" required>
+            <option value="">Selecione</option>
+            <option>Até 1 salário mínimo</option>
+            <option>De 1 a 2 salários mínimos</option>
+            <option>De 2 a 4 salários mínimos</option>
+            <option>De 4 a 8 salários mínimos</option>
+            <option>Mais de 8 salários mínimos</option>
+            <option>Prefiro não informar</option>
+          </select>
+          <p class="erro" data-erro-para="rendaFamiliar" role="alert"></p>
+        </div>
+
+        <div class="dupla">
+          <div class="campo">
+            <label for="moradores">Pessoas que moram na casa</label>
+            <input type="number" id="moradores" name="moradores" min="1" max="30" step="1" inputmode="numeric" required />
+            <p class="erro" data-erro-para="moradores" role="alert"></p>
+          </div>
+          <div class="campo">
+            <label for="trabalhadores">Dessas, quantas trabalham</label>
+            <input type="number" id="trabalhadores" name="trabalhadores" min="0" max="30" step="1" inputmode="numeric" required />
+            <p class="erro" data-erro-para="trabalhadores" role="alert"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Eleições</legend>
+
+        <div class="campo" role="radiogroup" aria-labelledby="lbl-voto">
+          <span id="lbl-voto" class="rotulo">Quanta certeza você tem do seu voto?</span>
+          <label class="opcao"><input type="radio" name="certezaVoto" value="Já decidi" required /> Já decidi</label>
+          <label class="opcao"><input type="radio" name="certezaVoto" value="Inclinado, mas posso mudar" /> Estou inclinado, mas posso mudar</label>
+          <label class="opcao"><input type="radio" name="certezaVoto" value="Indeciso" /> Estou indeciso</label>
+          <label class="opcao"><input type="radio" name="certezaVoto" value="Branco ou nulo" /> Pretendo votar branco ou nulo</label>
+          <label class="opcao"><input type="radio" name="certezaVoto" value="Não vota" /> Ainda não voto / não vou votar</label>
+          <p class="erro" data-erro-para="certezaVoto" role="alert"></p>
+        </div>
+
+        <div class="campo" role="group" aria-labelledby="lbl-pautas">
+          <span id="lbl-pautas" class="rotulo">Pautas prioritárias <small>(marque até 3)</small></span>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Saúde" /> Saúde</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Educação" /> Educação</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Segurança" /> Segurança</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Emprego e renda" /> Emprego e renda</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Transporte" /> Transporte</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Saneamento e ruas" /> Saneamento e ruas</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Meio ambiente" /> Meio ambiente</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Moradia" /> Moradia</label>
+          <label class="opcao"><input type="checkbox" name="pautas" value="Cultura e lazer" /> Cultura e lazer</label>
+          <p class="erro" data-erro-para="pautas" role="alert"></p>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="btn-enviar">Enviar minhas respostas</button>
+      <p id="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <section id="sucesso" class="sucesso" hidden tabindex="-1">
+      <h2>Respostas enviadas</h2>
+      <p>Obrigado por participar. Seus dados são anônimos e entram só em estatísticas gerais.</p>
+      <button type="button" id="btn-outra">Registrar outra resposta</button>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>DataVotoCesf · Projeto Integrado de Backend · <a href="admin.html">Área da equipe</a></p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
